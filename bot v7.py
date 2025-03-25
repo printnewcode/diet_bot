@@ -7,8 +7,10 @@ import requests
 import asyncio
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
-API_KEY = "sk-or-vv-9d90950af188ed57252dbbc413034c8038f982ddf17e9f6d187e2ca03c227f3f"
-API_URL = "https://api.vsegpt.ru/v1/chat/completions"
+dotenv.load_dotenv()
+
+
+
 DAILY_LIMIT = 5
 
 request_counter = DAILY_LIMIT
