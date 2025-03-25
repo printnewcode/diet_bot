@@ -5,10 +5,14 @@ from aiogram.fsm.state import StatesGroup, State
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 import requests
 import asyncio
+import dotenv
+import os
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
 dotenv.load_dotenv()
-
+API_KEY=os.getenv("API_KEY")
+API_URL=os.getenv("API_URL")
+BOT_TOKEN=os.getenv("BOT_TOKEN")
 
 
 DAILY_LIMIT = 5
@@ -141,7 +145,7 @@ async def process_weight(message: types.Message, state: FSMContext):
     await state.clear()
 
 async def main():
-    bot = Bot(token="8024137032:AAHaLmQfhqupb_Dm1ZJmCDIfCuNTYiTVDhk")
+    bot = Bot(token=BOT_TOKEN)
     dp = Dispatcher()
     dp.include_router(router)
     
